@@ -7,30 +7,30 @@ import static org.junit.Assert.assertTrue;
 
 public class LengthTest {
     @Test
-    public void shouldCompareGivenInchAndFeetAreEqual() {
+    public void shouldCompareGivenLengthInInchAndFeetAreEqual() {
         Length lengthInFeet = new Length(1, Unit.FEET);
-        Length lengthInInches = new Length(12, Unit.INCH);
-        assertTrue(lengthInFeet.compareTo(lengthInInches));
+        Length lengthInInch = new Length(12, Unit.INCH);
+        assertTrue(lengthInFeet.compareTo(lengthInInch));
     }
-
+    
     @Test
-    public void shouldCompareGivenInchAndFeetAreNotEqual() {
+    public void shouldCompareGivenLengthInInchAndFeetAreNotEqual() {
         Length lengthInFeet = new Length(2, Unit.FEET);
-        Length lengthInInches = new Length(12, Unit.INCH);
-        assertFalse(lengthInFeet.compareTo(lengthInInches));
+        Length lengthInInch = new Length(12, Unit.INCH);
+        assertFalse(lengthInFeet.compareTo(lengthInInch));
     }
-
+    
     @Test
-    public void shouldCompareGivenLengthsInCentimeterAndInchesAreEqual() {
+    public void shouldCompareGivenLengthsInCentimeterAndInchAreEqual() {
         Length lengthInCM = new Length(5, Unit.CENTIMETER);
         Length lengthInInches = new Length(2, Unit.INCH);
         assertTrue(lengthInCM.compareTo(lengthInInches));
     }
-
+    
     @Test
-    public void shouldCompareGivenInchAndCentimeterAreNotEqual() {
+    public void shouldCompareGivenLengthInInchAndCentimeterAreNotEqual() {
         Length lengthInCM = new Length(2, Unit.CENTIMETER);
-        Length lengthInInches = new Length(12, Unit.INCH);
-        assertFalse(lengthInCM.compareTo(lengthInInches));
+        Length lengthInInch = new Length(12, Unit.INCH);
+        assertFalse(lengthInCM.compareTo(lengthInInch));
     }
 }
