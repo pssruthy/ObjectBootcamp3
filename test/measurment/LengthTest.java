@@ -30,7 +30,7 @@ public class LengthTest {
     public void shouldCompareGivenLengthInInchAndCentimeterAreNotEqual() {
         Length lengthInCM = new Length(2, Unit.CENTIMETER);
         Length lengthInInch = new Length(12, Unit.INCH);
-        assertEquals(ComparisonResult.LESSER,lengthInCM.compareTo(lengthInInch));
+        assertEquals(ComparisonResult.GREATER,lengthInCM.compareTo(lengthInInch));
     }
     
     @Test
@@ -45,5 +45,13 @@ public class LengthTest {
         Length lengthInCM = new Length(2, Unit.CENTIMETER);
         Length lengthInMM = new Length(10, Unit.MILLIMETER);
         assertEquals(ComparisonResult.LESSER,lengthInCM.compareTo(lengthInMM));
+    }
+
+    @Test
+    public void shouldAddTwoGivenLengthsInInches() {
+        Length length1 = new Length(2, Unit.INCH);
+        Length length2 = new Length(1, Unit.INCH);
+        Length expected = new Length(3, Unit.INCH);
+        assertEquals(expected, length1.add(length2));
     }
 }
