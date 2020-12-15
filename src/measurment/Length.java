@@ -9,9 +9,15 @@ public class Length {
         this.unit = unit;
     }
     
-    public boolean compareTo(Length other) {
+    public ComparisonResult compareTo(Length other) {
         double otherInStandardUnit = other.unit.convertToStandard(other.value);
         double thisInStandardUnit = this.unit.convertToStandard(this.value);
-        return otherInStandardUnit == thisInStandardUnit;
+        if(otherInStandardUnit == thisInStandardUnit){
+            return ComparisonResult.EQUAL;
+        }
+        else if(otherInStandardUnit < thisInStandardUnit){
+            return ComparisonResult.LESSER;
+        }
+        return ComparisonResult.GREATER;
     }
 }
