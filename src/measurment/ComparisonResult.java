@@ -1,6 +1,5 @@
 package measurment;
 
 public enum ComparisonResult {
-    LESSER, GREATER, EQUAL;
-    
+    LESSER, GREATER, EQUAL
 }

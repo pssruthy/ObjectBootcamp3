@@ -1,5 +1,6 @@
-package measurment;
+package measurment.volume;
 
+import measurment.volume.VolumeUnit;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

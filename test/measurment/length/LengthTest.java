@@ -1,5 +1,9 @@
-package measurment;
+package measurment.length;
 
+import measurment.ComparisonResult;
+import measurment.length.Length;
+import measurment.length.LengthUnit;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,7 +13,7 @@ public class LengthTest {
     public void shouldCompareGivenLengthInInchAndFeetAreEqual() {
         Length lengthInFeet = new Length(1, LengthUnit.FEET);
         Length lengthInInch = new Length(12, LengthUnit.INCH);
-        assertEquals(ComparisonResult.EQUAL,lengthInFeet.compareTo(lengthInInch));
+        Assert.assertEquals(ComparisonResult.EQUAL,lengthInFeet.compareTo(lengthInInch));
     }
     
     @Test

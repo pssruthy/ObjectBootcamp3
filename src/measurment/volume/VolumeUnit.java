@@ -1,4 +1,4 @@
-package measurment;
+package measurment.volume;
 
 public enum VolumeUnit {
     LITER(1),

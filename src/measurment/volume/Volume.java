@@ -1,4 +1,6 @@
-package measurment;
+package measurment.volume;
+
+import measurment.ComparisonResult;
 
 public class Volume {
     private final double value;

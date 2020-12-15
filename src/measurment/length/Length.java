@@ -1,4 +1,6 @@
-package measurment;
+package measurment.length;
+
+import measurment.ComparisonResult;
 
 import java.util.Objects;
 

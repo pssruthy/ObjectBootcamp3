@@ -1,5 +1,9 @@
-package measurment;
+package measurment.volume;
 
+import measurment.ComparisonResult;
+import measurment.volume.Volume;
+import measurment.volume.VolumeUnit;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,7 +13,7 @@ public class VolumeTest {
     public void shouldCompareGivenVolumeInLiterAndGallonAreEqual() {
         Volume volumeInGallon = new Volume(1, VolumeUnit.GALLON);
         Volume volumeInLiter = new Volume(3.78, VolumeUnit.LITER);
-        assertEquals(ComparisonResult.EQUAL, volumeInGallon.compareTo(volumeInLiter));
+        Assert.assertEquals(ComparisonResult.EQUAL, volumeInGallon.compareTo(volumeInLiter));
     }
 
     @Test

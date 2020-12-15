@@ -1,4 +1,4 @@
-package measurment;
+package measurment.length;
 
 public enum LengthUnit {
     FEET(30),
