@@ -13,9 +13,9 @@ public class LengthTest {
     }
     
     @Test
-    public void shouldCompareGivenLengthInInchAndFeetAreNotEqual() {
+    public void shouldCompareGivenLengthInFeetIsLesserThanInches() {
         Length lengthInFeet = new Length(2, LengthUnit.FEET);
-        Length lengthInInch = new Length(12, LengthUnit.INCH);
+        Length lengthInInch = new Length(30, LengthUnit.INCH);
         assertEquals(ComparisonResult.LESSER,lengthInFeet.compareTo(lengthInInch));
     }
     
@@ -27,10 +27,10 @@ public class LengthTest {
     }
     
     @Test
-    public void shouldCompareGivenLengthInInchAndCentimeterAreNotEqual() {
+    public void shouldCompareGivenLengthInInchIsGreaterThanCentimeter() {
         Length lengthInCM = new Length(2, LengthUnit.CENTIMETER);
         Length lengthInInch = new Length(12, LengthUnit.INCH);
-        assertEquals(ComparisonResult.GREATER,lengthInCM.compareTo(lengthInInch));
+        assertEquals(ComparisonResult.GREATER, lengthInInch.compareTo(lengthInCM));
     }
     
     @Test
@@ -41,9 +41,9 @@ public class LengthTest {
     }
     
     @Test
-    public void shouldCompareGivenLengthInCentimeterAndMillimeterAreNotEqual() {
-        Length lengthInCM = new Length(2, LengthUnit.CENTIMETER);
-        Length lengthInMM = new Length(10, LengthUnit.MILLIMETER);
+    public void shouldCompareGivenLengthInCentimeterIsLesserThanMillimeter() {
+        Length lengthInCM = new Length(1, LengthUnit.CENTIMETER);
+        Length lengthInMM = new Length(11, LengthUnit.MILLIMETER);
         assertEquals(ComparisonResult.LESSER,lengthInCM.compareTo(lengthInMM));
     }
 
@@ -53,5 +53,19 @@ public class LengthTest {
         Length length2 = new Length(1, LengthUnit.INCH);
         Length expected = new Length(3, LengthUnit.INCH);
         assertEquals(expected, length1.add(length2));
+    }
+
+    @Test
+    public void shouldEquateWhenTwoLengthsAreEqual() {
+        Length length1 = new Length(1, LengthUnit.INCH);
+        Length length2 = new Length(1, LengthUnit.INCH);
+        assertEquals(length1, length2);
+    }
+
+    @Test
+    public void shouldNotEquateWhenTwoLengthsAreNotEqual() {
+        Length length1 = new Length(1, LengthUnit.INCH);
+        Length length2 = new Length(2, LengthUnit.INCH);
+        assertNotEquals(length1, length2);
     }
 }

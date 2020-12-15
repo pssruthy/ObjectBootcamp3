@@ -15,10 +15,10 @@ public class Length {
         double otherInStandardUnit = other.lengthUnit.convertToStandard(other.value);
         double thisInStandardUnit = this.lengthUnit.convertToStandard(this.value);
 
-        if(otherInStandardUnit == thisInStandardUnit){
+        if(thisInStandardUnit == otherInStandardUnit){
             return ComparisonResult.EQUAL;
         }
-        if(otherInStandardUnit < thisInStandardUnit){
+        if(thisInStandardUnit < otherInStandardUnit){
             return ComparisonResult.LESSER;
         }
         return ComparisonResult.GREATER;
