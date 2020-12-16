@@ -1,6 +1,6 @@
 package measurment.volume;
 
-public enum VolumeUnit {
+public enum VolumeUnit implements Measurable {
     LITER(1),
     GALLON(3.78);
 
@@ -14,7 +14,8 @@ public enum VolumeUnit {
         return value * this.equivalentInLiter;
     }
     
-    public double convertTo(double value, VolumeUnit otherUnit) {
+    @Override
+    public double convertTo(double value, Measurable otherUnit) {
         double valueInStandard = this.convertToStandard(value);
         return valueInStandard / otherUnit.equivalentInLiter;
     }
