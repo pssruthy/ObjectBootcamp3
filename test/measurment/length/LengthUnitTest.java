@@ -1,18 +1,17 @@
 package measurment.length;
 
-import measurment.length.LengthUnit;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LengthUnitTest {
     @Test
     public void shouldConvertTheGivenFeetToCentimeter() {
-        assertEquals(30, LengthUnit.FEET.convertToStandard(1), 0);
+        assertEquals(12, LengthUnit.FEET.convertToStandard(1), 0);
     }
     
     @Test
     public void shouldConvertTheGivenInchToCentimeter() {
-        assertEquals(5, LengthUnit.INCH.convertToStandard(2), 0);
+        assertEquals(2, LengthUnit.INCH.convertToStandard(2), 0);
     }
 }

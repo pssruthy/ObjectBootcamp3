@@ -1,18 +1,18 @@
 package measurment.length;
 
 public enum LengthUnit {
-    FEET(30),
-    INCH(2.5),
-    CENTIMETER(1),
-    MILLIMETER(0.1);
+    FEET(12),
+    INCH(1),
+    CENTIMETER(.4),
+    MILLIMETER(.04);
 
-    private final double equivalentInCentimeter;
+    private final double equivalentInInch;
 
-    LengthUnit(double equivalentInCentimeter) {
-        this.equivalentInCentimeter = equivalentInCentimeter;
+    LengthUnit(double equivalentInInch) {
+        this.equivalentInInch = equivalentInInch;
     }
 
     public double convertToStandard(double value) {
-        return value * this.equivalentInCentimeter;
+        return value * this.equivalentInInch;
     }
 }

@@ -52,14 +52,6 @@ public class LengthTest {
     }
 
     @Test
-    public void shouldAddTwoGivenLengthsInInches() {
-        Length length1 = new Length(2, LengthUnit.INCH);
-        Length length2 = new Length(1, LengthUnit.INCH);
-        Length expected = new Length(3, LengthUnit.INCH);
-        assertEquals(expected, length1.add(length2));
-    }
-
-    @Test
     public void shouldEquateWhenTwoLengthsAreEqual() {
         Length length1 = new Length(1, LengthUnit.INCH);
         Length length2 = new Length(1, LengthUnit.INCH);
@@ -71,5 +63,21 @@ public class LengthTest {
         Length length1 = new Length(1, LengthUnit.INCH);
         Length length2 = new Length(2, LengthUnit.INCH);
         assertNotEquals(length1, length2);
+    }
+    
+    @Test
+    public void shouldAddTwoGivenLengthsInSameUnit() {
+        Length length1 = new Length(2, LengthUnit.INCH);
+        Length length2 = new Length(1, LengthUnit.INCH);
+        Length expected = new Length(3, LengthUnit.INCH);
+        assertEquals(expected, length1.add(length2));
+    }
+    
+    @Test
+    public void shouldAddGivenTwoLengthsInDifferentUnit() {
+        Length length1 = new Length(2, LengthUnit.INCH);
+        Length length2 = new Length(2.5, LengthUnit.CENTIMETER);
+        Length expected = new Length(3, LengthUnit.INCH);
+        assertEquals(expected, length1.add(length2));
     }
 }

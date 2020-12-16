@@ -27,7 +27,10 @@ public class Length {
     }
 
     public Length add(Length other) {
-        return new Length(this.value + other.value, this.lengthUnit);
+        double otherInStandardUnit = other.lengthUnit.convertToStandard(other.value);
+        double thisInStandardUnit = this.lengthUnit.convertToStandard(this.value);
+        double sum = otherInStandardUnit + thisInStandardUnit;
+        return new Length(sum, LengthUnit.INCH);
     }
 
     @Override
