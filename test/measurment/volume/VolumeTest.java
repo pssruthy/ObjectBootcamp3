@@ -29,4 +29,20 @@ public class VolumeTest {
         Volume volumeInGallon = new Volume(1, VolumeUnit.GALLON);
         assertEquals(ComparisonResult.LESSER, volumeInGallon.compareTo(volumeInLiter));
     }
+    
+    @Test
+    public void shouldAddTwoVolumesInSameUnits() {
+        Volume volumeInGallon = new Volume(1, VolumeUnit.GALLON);
+        Volume volumeInLiter = new Volume(1, VolumeUnit.GALLON);
+        Volume expected = new Volume(7.56, VolumeUnit.LITER);
+        assertEquals(expected,volumeInGallon.add(volumeInLiter));
+    }
+    
+    @Test
+    public void shouldAddTwoVolumesInDifferentUnits() {
+        Volume volumeInGallon = new Volume(1, VolumeUnit.GALLON);
+        Volume volumeInLiter = new Volume(1, VolumeUnit.LITER);
+        Volume expected = new Volume(4.78, VolumeUnit.LITER);
+        assertEquals(expected,volumeInGallon.add(volumeInLiter));
+    }
 }
