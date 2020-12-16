@@ -1,4 +1,4 @@
-package measurment.quantity;
+package measurment.unit;
 
 import org.junit.Test;
 
