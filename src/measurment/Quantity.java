@@ -7,10 +7,12 @@ import java.util.Objects;
 public class Quantity<U extends Unit> {
     private final double value;
     private final U unit;
-    
-    public Quantity(double value, U unit) {
+    private final U standardUnit;
+
+    public Quantity(double value, U unit, U standardUnit) {
         this.value = value;
         this.unit = unit;
+        this.standardUnit = standardUnit;
     }
     
     public ComparisonResult compareTo(Quantity<U> other) {
@@ -26,12 +28,12 @@ public class Quantity<U extends Unit> {
         return ComparisonResult.EQUAL;
     }
     
-    public Quantity<U> add(Quantity<U> other,U standardUnit) {
+    public Quantity<U> add(Quantity<U> other) {
         double otherInBase = other.unit.convertToBase(other.value);
         double thisInBase = this.unit.convertToBase(this.value);
         double sumInBase = this.round(otherInBase + thisInBase);
-        double sumInStandard = standardUnit.convertFromBase(sumInBase);
-        return new Quantity<>(sumInStandard, standardUnit);
+        double sumInStandard = this.standardUnit.convertFromBase(sumInBase);
+        return new Quantity<>(sumInStandard, this.standardUnit, this.standardUnit);
     }
     
     private double round(double value) {
