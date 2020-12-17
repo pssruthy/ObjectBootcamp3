@@ -1,24 +1,12 @@
 package measurment.unit;
 
-public enum LengthUnit implements Unit {
-    FEET(12),
-    INCH(1),
-    CENTIMETER(.4),
-    MILLIMETER(.04);
+public class LengthUnit extends Unit {
+    public static final LengthUnit FEET = new LengthUnit(12);
+    public static final LengthUnit INCH = new LengthUnit(1);
+    public static final LengthUnit CENTIMETER = new LengthUnit(.4);
+    public static final LengthUnit MILLIMETER = new LengthUnit(.04);
 
-    private final double equivalentInInch;
-
-    LengthUnit(double equivalentInInch) {
-        this.equivalentInInch = equivalentInInch;
-    }
-
-    @Override
-    public double convertToBase(double value) {
-        return value * this.equivalentInInch;
-    }
-
-    @Override
-    public double convertFromBase(double valueInBase) {
-        return valueInBase / this.equivalentInInch;
+    private LengthUnit(double equivalentInInch) {
+        super(equivalentInInch);
     }
 }
