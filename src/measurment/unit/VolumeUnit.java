@@ -10,14 +10,13 @@ public enum VolumeUnit implements Unit {
         this.equivalentInLiter = equivalentInLiter;
     }
 
-    private double convertToStandard(double value) {
+    @Override
+    public double convertToBase(double value) {
         return value * this.equivalentInLiter;
     }
-    
+
     @Override
-    public double convertTo(double value, Unit otherUnit) {
-        double valueInStandard = this.convertToStandard(value);
-        VolumeUnit otherInVolume = (VolumeUnit) otherUnit;
-        return valueInStandard / otherInVolume.equivalentInLiter;
+    public double convertFromBase(double valueInBase) {
+        return valueInBase / this.equivalentInLiter;
     }
 }

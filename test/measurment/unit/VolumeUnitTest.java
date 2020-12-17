@@ -6,12 +6,12 @@ import static org.junit.Assert.*;
 
 public class VolumeUnitTest {
     @Test
-    public void shouldConvertTheVolumeToSameUnit() {
-        assertEquals(2, VolumeUnit.GALLON.convertTo(2, VolumeUnit.GALLON), 0);
+    public void shouldConvertTheGivenVolumeInToBaseUnit() {
+        assertEquals(7.56, VolumeUnit.GALLON.convertToBase(2), 0);
     }
     
     @Test
-    public void shouldConvertTheVolumeToGivenUnit() {
-        assertEquals(3.78, VolumeUnit.GALLON.convertTo(1, VolumeUnit.LITER), 0);
+    public void shouldConvertTheVolumeInBaseToGivenUnit() {
+        assertEquals(1, VolumeUnit.GALLON.convertFromBase(3.78), 0);
     }
 }

@@ -12,14 +12,13 @@ public enum LengthUnit implements Unit {
         this.equivalentInInch = equivalentInInch;
     }
 
-    private double convertToStandard(double value) {
+    @Override
+    public double convertToBase(double value) {
         return value * this.equivalentInInch;
     }
-    
+
     @Override
-    public double convertTo(double value, Unit otherUnit) {
-        double valueInStandard = this.convertToStandard(value);
-        LengthUnit otherInLength = (LengthUnit) otherUnit;
-        return valueInStandard / otherInLength.equivalentInInch;
+    public double convertFromBase(double valueInBase) {
+        return valueInBase / this.equivalentInInch;
     }
 }

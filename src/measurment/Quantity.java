@@ -14,22 +14,24 @@ public class Quantity<U extends Unit> {
     }
     
     public ComparisonResult compareTo(Quantity<U> other) {
-        double convertedValue = other.unit.convertTo(other.value,this.unit);
-        
-        if (this.value > convertedValue) {
+        double otherInBase = other.unit.convertToBase(other.value);
+        double thisInBase = this.unit.convertToBase(this.value);
+
+        if (thisInBase > otherInBase) {
             return ComparisonResult.GREATER;
         }
-        if (this.value < convertedValue) {
+        if (thisInBase < otherInBase) {
             return ComparisonResult.LESSER;
         }
         return ComparisonResult.EQUAL;
     }
     
     public Quantity<U> add(Quantity<U> other,U standardUnit) {
-        double otherInStandardUnit = other.unit.convertTo(other.value,standardUnit);
-        double thisInStandardUnit = this.unit.convertTo(this.value,standardUnit);
-        double sum = this.round(otherInStandardUnit + thisInStandardUnit);
-        return new Quantity<>(sum, standardUnit);
+        double otherInBase = other.unit.convertToBase(other.value);
+        double thisInBase = this.unit.convertToBase(this.value);
+        double sumInBase = this.round(otherInBase + thisInBase);
+        double sumInStandard = standardUnit.convertFromBase(sumInBase);
+        return new Quantity<>(sumInStandard, standardUnit);
     }
     
     private double round(double value) {
