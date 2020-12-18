@@ -5,8 +5,8 @@ import measurment.unit.Unit;
 import java.util.Objects;
 
 public class Quantity<U extends Unit> {
-    protected final double value;
-    protected final U unit;
+    private final double value;
+    private final U unit;
     
     public Quantity(double value, U unit) {
         this.value = value;
@@ -39,5 +39,9 @@ public class Quantity<U extends Unit> {
     @Override
     public int hashCode() {
         return Objects.hash(value, unit);
+    }
+    
+    protected double convertToBase() {
+        return this.unit.convertToBase(this.value);
     }
 }

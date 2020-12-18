@@ -12,9 +12,7 @@ public class Length extends Quantity<LengthUnit> {
     }
     
     public Length add(Length other) {
-        double otherInBase = other.unit.convertToBase(other.value);
-        double thisInBase = this.unit.convertToBase(this.value);
-        double sumInBase = this.round(otherInBase + thisInBase);
+        double sumInBase = this.round(other.convertToBase() + this.convertToBase());
         double sumInStandard = this.standardUnit.convertFromBase(sumInBase);
         return new Length(sumInStandard, this.standardUnit);
     }

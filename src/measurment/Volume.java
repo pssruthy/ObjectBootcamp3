@@ -11,9 +11,7 @@ public class Volume extends Quantity<VolumeUnit>{
     }
     
     public Volume add(Volume other) {
-        double otherInBase = other.unit.convertToBase(other.value);
-        double thisInBase = this.unit.convertToBase(this.value);
-        double sumInBase = this.round(otherInBase + thisInBase);
+        double sumInBase = this.round(other.convertToBase() + this.convertToBase());
         double sumInStandard = this.standardUnit.convertFromBase(sumInBase);
         return new Volume(sumInStandard, this.standardUnit);
     }
