@@ -1,6 +1,7 @@
 package measurment;
 
 import measurment.unit.LengthUnit;
+import measurment.unit.TemperatureUnit;
 import measurment.unit.VolumeUnit;
 import org.junit.Test;
 
@@ -101,5 +102,19 @@ public class QuantityTest {
         Quantity<LengthUnit> quantity1 = new Quantity<>(1, LengthUnit.INCH, LengthUnit.INCH);
         Quantity<LengthUnit> quantity2 = new Quantity<>(2, LengthUnit.INCH, LengthUnit.INCH);
         assertNotEquals(quantity1, quantity2);
+    }
+    
+    @Test
+    public void shouldCompareGivenTemperaturesInFahrenheitAndCelsiusAreEqual() {
+        Quantity<TemperatureUnit> fahrenheit = new Quantity<>(212, TemperatureUnit.FAHRENHEIT, TemperatureUnit.FAHRENHEIT);
+        Quantity<TemperatureUnit> celsius = new Quantity<>(100, TemperatureUnit.CELSIUS, TemperatureUnit.FAHRENHEIT);
+        assertEquals(ComparisonResult.EQUAL, fahrenheit.compareTo(celsius));
+    }
+    
+    @Test
+    public void shouldCompareGivenTemperaturesInFahrenheitGreaterThanCelsius() {
+        Quantity<TemperatureUnit> fahrenheit = new Quantity<>(300, TemperatureUnit.FAHRENHEIT, TemperatureUnit.FAHRENHEIT);
+        Quantity<TemperatureUnit> celsius = new Quantity<>(100, TemperatureUnit.CELSIUS, TemperatureUnit.FAHRENHEIT);
+        assertEquals(ComparisonResult.GREATER, fahrenheit.compareTo(celsius));
     }
 }
