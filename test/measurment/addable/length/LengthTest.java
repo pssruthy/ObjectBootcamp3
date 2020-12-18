@@ -1,6 +1,9 @@
-package measurment;
+package measurment.addable.length;
 
-import measurment.unit.LengthUnit;
+import measurment.ComparisonResult;
+import measurment.addabale.length.Length;
+import measurment.addabale.length.LengthUnit;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +14,7 @@ public class LengthTest {
     public void shouldCompareGivenLengthInInchAndFeetAreEqual() {
         Length feet = new Length(1, LengthUnit.FEET);
         Length inch = new Length(12, LengthUnit.INCH);
-        assertEquals(ComparisonResult.EQUAL, feet.compareTo(inch));
+        Assert.assertEquals(ComparisonResult.EQUAL, feet.compareTo(inch));
     }
     
     @Test

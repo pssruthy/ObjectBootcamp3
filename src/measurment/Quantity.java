@@ -1,7 +1,5 @@
 package measurment;
 
-import measurment.unit.Unit;
-
 import java.util.Objects;
 
 public class Quantity<U extends Unit> {
@@ -26,6 +24,10 @@ public class Quantity<U extends Unit> {
         return ComparisonResult.EQUAL;
     }
     
+    protected double convertToBase() {
+        return this.unit.convertToBase(this.value);
+    }
+    
     private double round(double value) {
         return Math.round(value * 100)/100.0;
     }
@@ -42,9 +44,5 @@ public class Quantity<U extends Unit> {
     @Override
     public int hashCode() {
         return Objects.hash(value, unit);
-    }
-    
-    protected double convertToBase() {
-        return this.unit.convertToBase(this.value);
     }
 }

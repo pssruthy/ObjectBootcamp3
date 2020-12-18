@@ -1,8 +1,8 @@
 package measurment;
 
-import measurment.unit.LengthUnit;
-import measurment.unit.TemperatureUnit;
-import measurment.unit.VolumeUnit;
+import measurment.addabale.length.LengthUnit;
+import measurment.temperature.TemperatureUnit;
+import measurment.addabale.volume.VolumeUnit;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

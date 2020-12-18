@@ -1,6 +1,8 @@
-package measurment.unit;
+package measurment.temperature;
 
-public class TemperatureUnit extends Unit{
+import measurment.Unit;
+
+public class TemperatureUnit extends Unit {
     public static final TemperatureUnit FAHRENHEIT = new TemperatureUnit(5/9.0,-32);
     public static final TemperatureUnit CELSIUS = new TemperatureUnit(1,0);
     private final double additionFactor;

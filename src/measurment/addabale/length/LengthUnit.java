@@ -1,4 +1,6 @@
-package measurment.unit;
+package measurment.addabale.length;
+
+import measurment.Unit;
 
 public class LengthUnit extends Unit {
     public static final LengthUnit FEET = new LengthUnit(12);

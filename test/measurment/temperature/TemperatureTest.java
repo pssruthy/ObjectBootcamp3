@@ -1,6 +1,7 @@
-package measurment;
+package measurment.temperature;
 
-import measurment.unit.TemperatureUnit;
+import measurment.ComparisonResult;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +12,7 @@ public class TemperatureTest {
     public void shouldCompareGivenTemperatureInCelsiusAndFahrenheitAreEqual() {
         Temperature celsius = new Temperature(100,TemperatureUnit.CELSIUS);
         Temperature fahrenheit = new Temperature(212,TemperatureUnit.FAHRENHEIT);
-        assertEquals(ComparisonResult.EQUAL, celsius.compareTo(fahrenheit));
+        Assert.assertEquals(ComparisonResult.EQUAL, celsius.compareTo(fahrenheit));
     }
     
     @Test

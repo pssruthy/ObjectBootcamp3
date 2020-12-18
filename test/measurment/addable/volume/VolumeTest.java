@@ -1,6 +1,9 @@
-package measurment;
+package measurment.addable.volume;
 
-import measurment.unit.VolumeUnit;
+import measurment.ComparisonResult;
+import measurment.addabale.volume.Volume;
+import measurment.addabale.volume.VolumeUnit;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +14,7 @@ public class VolumeTest {
     public void shouldCompareGivenVolumeInLiterAndGallonAreEqual() {
         Volume gallon = new Volume(1.0, VolumeUnit.GALLON);
         Volume liter = new Volume(3.78, VolumeUnit.LITER);
-        assertEquals(ComparisonResult.EQUAL, gallon.compareTo(liter));
+        Assert.assertEquals(ComparisonResult.EQUAL, gallon.compareTo(liter));
     }
     
     @Test

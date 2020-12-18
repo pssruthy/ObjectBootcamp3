@@ -1,8 +1,9 @@
-package measurment;
+package measurment.addabale;
 
-import measurment.unit.Unit;
+import measurment.Quantity;
+import measurment.Unit;
 
-public abstract class AddableQuantity<U extends Unit> extends Quantity<U>{
+public abstract class AddableQuantity<U extends Unit> extends Quantity<U> {
     public AddableQuantity(double value, U unit) {
         super(value, unit);
     }

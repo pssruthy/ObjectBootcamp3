@@ -1,4 +1,4 @@
-package measurment.unit;
+package measurment;
 
 public class Unit {
     private final double baseValue;

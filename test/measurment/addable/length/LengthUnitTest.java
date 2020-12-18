@@ -1,5 +1,6 @@
-package measurment.unit;
+package measurment.addable.length;
 
+import measurment.addabale.length.LengthUnit;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
