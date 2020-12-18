@@ -2,6 +2,8 @@ package measurment;
 
 import measurment.unit.LengthUnit;
 
+import java.util.Objects;
+
 public class Length extends Quantity<LengthUnit> {
     
     private final LengthUnit standardUnit;
@@ -12,12 +14,22 @@ public class Length extends Quantity<LengthUnit> {
     }
     
     public Length add(Length other) {
-        double sumInBase = this.round(other.convertToBase() + this.convertToBase());
+        double sumInBase =other.convertToBase() + this.convertToBase();
         double sumInStandard = this.standardUnit.convertFromBase(sumInBase);
         return new Length(sumInStandard, this.standardUnit);
     }
     
-    private double round(double value) {
-        return Math.round(value * 100)/100.0;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Length length = (Length) o;
+        return Objects.equals(standardUnit, length.standardUnit);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), standardUnit);
     }
 }
