@@ -26,7 +26,6 @@ public class Quantity<U extends Unit> {
         return ComparisonResult.EQUAL;
     }
     
-    
     private double round(double value) {
         return Math.round(value * 100)/100.0;
     }
